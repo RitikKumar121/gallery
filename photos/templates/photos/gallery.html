@@ -75,9 +75,11 @@
                     <div class="card-body">
                         <small><b>Image Name :-  </b>{{p.category.name}}</small>
                     </div>
-                    <a href=" {% url 'photo' p.id %}" class="btn btn-outline-dark btn-sm -1  mr-sm-2">View</a>
+                    <div class="btn-group" role="group" >
+                         <a href=" {% url 'photo' p.id %}" class="btn btn-outline-dark btn-sm -1  mr-sm-2">View</a>
                          <!--delelte code-->
                          <a href=" {% url 'delete-prod' p.id %}" class="btn btn-outline-dark btn-sm -1">Delete</a>
+                    </div>
 
                 </div>
             </div>
