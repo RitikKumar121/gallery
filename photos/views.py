@@ -5,6 +5,7 @@ from venv import create
 from django.shortcuts import render,redirect
 from .models import Category,photo
 from django.core.paginator import PageNotAnInteger,Paginator,EmptyPage
+from django.contrib import messages
 # Create your views here.
 def about(request):
     return render(request,'photos/about.html')
@@ -59,5 +60,10 @@ def addphotos(request):
     context = {'categories': categories}
     return render(request,'photos/add.html',context)
 
+def deleteproduct(request,pk):
+    prod=photo.objects.filter(id=pk)
+    prod.delete()
+    messages.success(request, "Product Deleted Successfuly")
+    return redirect('/')
 
 #    path('photo/', views.viewphotos, name='photo'),
